@@ -1,0 +1,728 @@
+<!DOTYPE html>
+    <html>
+    <title>지나지기</title>
+
+    <head>
+        <meta charset="utf-8">
+        <link rel="favion" href="img/logo.ico">
+        <link rel="stylesheet" type="text/css" href="css/all.css">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/create_user.css">
+        <link rel="stylesheet" type="text/css" href="css/font.css">
+        <link rel="shortcut icon" href="img/logo.png" type="image/x-icon" />
+        <link rel="icon" href="img/logo.png" type="image/x-icon" />
+
+        <script type="text/javascript" src="js/jquery-1.12.3.js" defer="defer"></script>
+        <script src="js/search.js" type=text/javascript defer></script>
+        <script src="js/clik_scroll.js" type="text/javascript" defer="defer"></script>
+        <script src="js/scroll.js" type="text/javascript" defer="defer"></script>
+        <script src="js/model.js" type="text/javascript" defer="defer"></script>
+        <!--        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2dca9bd630f5b7e45907a9b67a8002c2"></script>-->
+        <script src="js/map.js" defer="defer" type="text/javascript"></script>
+    </head>
+    <!--oncontextmenu="return false" ondragstart="return false" onselectstart="return false"-->
+            <?php session_start();
+?>
+    <body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+        <section id="main1" class="scroll">
+
+            <!--커버이미지-->
+            <div id="header">
+                <div id="login">
+                    <?php if(!isset($_SESSION['id'])){ ?>
+                    <span class="menu_button" onclick='login_user_model()'>로그인</span>
+                    <span class="menu_button" onclick='create_user_model()'>회원가입</span>
+                    <?php }else if($_SESSION['grade'] == 0){ ?>
+                    <div class="id_name"><span class="user_name"><?php echo $_SESSION['id']."님"; ?></span>
+                        <span onclick='window.location.href="logout.php"'><img src="img/Logout_icon.png" class="logout_header"></span></div>
+                    <?php }else{ ?>
+                    <span class="menu_button">관리자님</span>
+                    <span class="menu_button" onclick='window.location.href="create_board.html"'>글쓰기</span>
+                    <span class="menu_button" onclick='window.location.href="logout.php"'>로그아웃</span>
+                    <?php }?>
+<!--
+                  <?php  setcookie("cookie", "setcookie", time() + 3600, "/");
+            echo $_COOKIE["cookie"]; ?>
+-->
+                </div>
+            </div>
+            <img src="img/main_1.jpg" id="main_img">
+            <div id="carver_op"></div>
+
+            <!--로고-->
+            <!--
+            <div id="logo" onclick="logo('1')">
+                <img src="img/logo.png" id="logo_img">
+            </div>
+-->
+            <!--메인글-->
+            <div id="main_text">
+                <div class="main_text_top">Traveling Together</div>
+                <div class="main_text_center">ZNZG</div>
+                <div class="main_text_bottom">지나지기는 당신의 길을 응원합니다.</div>
+            </div>
+
+
+            <!--메뉴-->
+            <div id="menu">
+                <div id="click_scroll1" class="click_scroll" onclick="fnMove('1');"><img src="img/one.png" class="scroll_button"></div>
+                <div id="click_scroll2" class="click_scroll" onclick="fnMove('2');">
+                    <img src="img/one.png"></div>
+            </div>
+
+            <div id="select_menu">
+                <div id="select_scroll1" class="select_scroll" onclick="fnMove('1');">
+                    <div id="select_text1" class="select_text"><img src="img/select_one.png"></div>
+                </div>
+                <div id="select_scroll2" class="select_scroll" onclick="fnMove('2');">
+                    <div id="select_text2" class="select_text"><img src="img/select_one.png"></div>
+                </div>
+            </div>
+
+            <!--스크롤 버튼-->
+            <div id="down_scroll1">
+                <img src="img/scroll_button.png" onclick="down_scroll('2');" class="down_scroll_button">
+                <div class="down_text" onclick="down_scroll('2');">
+                    SCROLL
+                </div>
+            </div>
+        </section>
+
+
+
+        <section id="main2" class="scroll">
+            <img src="img/main_2.png" id="main_img">
+            <!--            <div id="map" style="width:700px;height:500px;"></div>-->
+            <div class="main2_search">
+                <div class="search_box">
+                    <form action="search.php" method="post" id="search_form">
+                        <input hidden="hidden">
+                        <input type="search" class="searchBox" name="keyword" autocomplete="off">
+                        <img src="img/search_button.png" class="search_button">
+                    </form>
+                </div>
+                <div class="search_text">지나지기가 추천하는 베스트!</div><br>
+
+                <div class="search_result_box">
+                </div>
+                <table class="best_select">
+                    <tr>
+                        <td>
+                            <div class="main2_recommend1"><img src="img/jeju_best.png" onclick="jeju_best();"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="main2_recommend1"><img src="img/seogwipo_best.png" onclick="seogwipo_best();"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="main2_recommend1"><img src="img/all_veiw.png" onclick="all_view()"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="all_category"><a href="list_page.php?kind=attraction&page=1" class="all_category">모든 카테고리 보기 ></a></span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+
+            <div class="map">
+                <div class="Aewol_text" onclick="Aewol();">애월읍</div>
+                <div class="Jeju_City_text" onclick="Jeju_City();">제주시</div>
+                <div class="Jocheon" onclick="Jocheon();">조천읍</div>
+                <div class="Gujwa" onclick="Gujwa();">구좌읍</div>
+                <div class="Seongsan" onclick="Seongsan();">성산읍</div>
+                <div class="Pyoseon" onclick="Pyoseon();">표선읍</div>
+                <div class="Namwon" onclick="Namwon();">남원읍</div>
+                <div class="Seogwipo" onclick="Seogwipo();">서귀포시</div>
+                <div class="Jungmun" onclick="Jungmun();">중문</div>
+                <div class="Anduk" onclick="Anduk();">안덕면</div>
+                <div class="Daejeong" onclick="Daejeong();">대정읍</div>
+                <div class="Hankyung" onclick="Hankyung();">한경면</div>
+                <div class="Hallym" onclick="Hallym();">한림읍</div>
+                <div class="Gapado" onclick="Gapado();">가파도</div>
+                <div class="Marado" onclick="Marado();">마라도</div>
+                <div class="Chaguido" onclick="Chaguido();">차귀도</div>
+                <div class="biyangdo" onclick="biyangdo();">비양도</div>
+                <div class="Chujado" onclick="Chujado();">추자도</div>
+                <div class="Udo" onclick="udo();">우도</div>
+                <svg height="935" width="1920">
+                    <polyline id="Aewol" onclick="Aewol();" points="660,392 682,377 687,355 719,354 737,338 755,338 778,323 797,330 799,341 803,350 814,351 829,346 829,361 833,371 832,381 836,390 834,402 833,418 835,428 845,449 857,463 872,470 884,467 908,472 922,481 932,494 931,503 919,508 905,504 896,504 889,510 878,505 868,508 862,505 850,509 826,509 818,529 791,529 786,523 766,528 754,522 748,523 716,505 692,486 690,464 671,454 671,439 664,429 665,409 660,392" />
+
+                    <polyline id="Jeju_City" onclick="Jeju_City();" points="802,325 814,324 819,315 835,315 872,304 872,297 877,292 891,288 894,281 906,278 914,282 944,284 948,276 956,277 968,277 980,271 992,270 996,268 1001,270 1009,271 1012,261 1019,258 1021,261 1014,277 1019,291 1034,291 1040,295 1040,314 1060,344 1062,358 1069,372 1067,393 1070,400 1049,421 1031,455 1024,460 1013,459 988,477 978,478 970,486 947,501 935,502 936,492 925,479 910,469 883,464 874,466 860,460 849,447 838,426 837,417 838,403 840,390 835,380 836,371 832,362 832,345 828,343 814,348 805,348 802,341 800,329 802,325" />
+
+                    <polyline id="Jocheon" onclick="Jocheon();" points="1021,255 1037,257 1041,251 1067,253 1078,226 1082,228 1083,235 1091,233 1092,240 1101,245 1110,243 1115,235 1120,232 1127,238 1138,233 1142,261 1154,275 1156,283 1179,308 1179,326 1176,330  1176,339 1168,349 1170,368 1165,382 1165,398 1177,409 1180,413 1180,416 1155,418 1123,435 1111,447 1094,447 1084,454 1084,458 1066,458 1047,476 1023,476 1012,486 993,488 972,488 979,482 989,481 1014,462 1026,463 1034,458 1053,422 1075,402 1071,391 1073,371 1066,359 1064,342 1045,313 1045,294 1036,287 1023,287 1019,276 1025,263 1021,255" />
+
+                    <polyline id="Gujwa" onclick="Gujwa();" points="1143,233 1167,230 1178,220 1187,228 1191,225 1212,224 1218,215 1224,215 1230,219 1234,217 1240,217 1246,221 1250,222 1259,230 1273,224 1284,219 1292,224 1298,236 1296,244 1302,252 1309,254 1316,261 1320,261 1326,267 1326,271 1336,272 1353,266 1360,270 1371,269 1384,285 1380,289 1382,295 1389,295 1393,325 1384,337 1371,338 1352,347 1344,357 1332,358 1328,364 1314,365 1306,375 1295,377 1289,386 1273,390 1266,395 1249,396 1231,411 1215,420 1197,424 1185,416 1183,411 1168,395 1168,383 1174,370 1172,350 1180,341 1180,331 1182,327 1182,307 1159,281 1158,273 1146,260 1143,233" />
+
+                    <polyline id="Seongsan" onclick="Seongsan();" points="1384,340 1390,343 1392,350 1402,353 1407,359 1398,363 1405,366 1406,373 1413,370 1412,364 1413,361 1413,353 1418,351 1423,353 1422,362 1429,367 1440,368 1441,377 1437,381 1425,376 1419,371 1406,385 1407,401 1426,411 1424,414 1420,414 1415,426 1405,418 1408,410 1405,407 1399,407 1398,420 1392,437 1392,442 1386,451 1389,465 1383,474 1372,476 1358,483 1356,493 1350,495 1348,503 1341,507 1343,523 1332,534 1328,543 1318,522 1304,503 1288,498 1283,489 1278,490 1267,480 1275,471 1276,466 1281,462 1280,445 1289,426 1292,416 1285,407 1282,401 1273,394 1290,390 1297,379 1308,379 1316,368 1329,368 1335,361 1344,361 1355,349 1372,341 1384,340" />
+
+                    <polyline id="Pyoseon" onclick="Pyoseon();" points="1325,545 1311,555 1306,558 1312,562 1315,569 1307,577 1306,585 1293,592 1279,592 1273,596 1257,598 1252,595 1249,598 1245,593 1242,587 1233,574 1226,573 1216,560 1219,550 1195,516 1192,507 1181,501 1174,494 1158,490 1149,483 1135,485 1129,481 1122,485 1113,483 1109,469 1093,465 1088,460 1088,454 1095,450 1114,451 1127,438 1156,421 1182,420 1197,428 1216,424 1231,416 1252,400 1271,398 1277,402 1287,417 1285,425 1275,443 1277,461 1273,466 1270,470 1273,466 1271,470 1263,480 1276,494 1282,493 1284,501 1302,506 1315,524 1325,545" />
+
+                    <polyline id="Namwon" onclick="Namwon();" points="1238,588 1220,609 1220,614 1216,616 1204,622 1199,632 1193,633 1184,628 1178,632 1172,632 1164,637 1160,637 1156,640 1142,642 1140,646 1114,647 1109,641 1107,645 1101,643 1098,638 1093,645 1076,647 1074,661 1055,670 1053,667 1053,645 1050,620 1043,618 1027,598 1022,565 1010,554 1005,538 1000,538 978,520 968,500 954,501 970,491 992,491 1012,490 1026,479 1048,479 1068,460 1085,461 1092,468 1106,471 1111,486 1124,489 1128,486 1136,491 1139,489 1149,488 1156,493 1172,497 1178,503 1188,509 1190,516 1215,551 1212,562 1225,577 1232,578 1238,588" />
+
+                    <polyline id="Seogwipo" onclick="Seogwipo();" points="1053,673 1048,677 1049,685 1031,688 1022,692 1014,682 1008,679 999,683 989,684 987,688 980,689 978,683 970,683 963,692 959,691 957,685 949,687 945,686 948,678 947,671 940,657 939,649 932,630 937,617 936,584 929,568 936,557 934,545 930,537 931,525 935,515 935,507 943,506 950,503 966,504 975,522 998,541 1003,541 1008,556 1019,566 1024,599 1042,622 1047,623 1050,647 1050,668 1053,673" />
+
+                    <polyline id="Jungmun" onclick="Jungmun();" points="941,688 934,685 930,686 921,698 893,699 886,707 882,704 875,709 863,698 863,690 849,685 827,695 818,693 812,684 803,680 790,684 772,697 764,698 751,696 745,686 744,671 750,657 746,651 751,648 745,606 755,587 758,586 770,601 780,602 785,596 785,589 789,585 796,585 803,579 807,572 808,558 811,552 813,544 825,536 822,530 830,512 853,512 862,510 867,513 877,508 890,514 898,508 904,508 919,513 931,507 931,515 928,525 927,538 931,547 932,556 925,568 932,585 933,616 928,630 936,651 937,658 944,672 945,677 941,688" />
+
+                    <polyline id="Anduk" onclick="Anduk();" points="745,690 735,692 732,695 727,689 713,688 709,684 697,688 690,697 686,700 686,703 680,703 670,708 665,701 655,700 649,693 650,686 645,677 646,666 653,660 657,648 657,633 667,624 667,617 654,605 654,593 643,584 652,572 659,558 681,552 688,556 699,542 708,532 748,532 748,526 755,526 765,533 783,529 790,532 819,532 822,535 811,543 809,551 806,558 805,571 802,577 795,583 788,583 783,588 783,595 779,600 771,599 759,583 753,585 742,606 748,646 743,651 747,658 742,670 743,687 745,690" />
+
+                    <polyline id="Daejeong" onclick="Daejeong();" points="669,712 668,721 664,735 668,744 667,751 662,752 657,749 657,744 655,741 648,744 641,749 635,749 628,744 632,734 630,729 624,729 615,720 616,716 610,712 595,692 589,690 589,684 582,683 576,680 563,679 547,663 536,659 532,650 519,629 519,622 510,615 509,603 516,599 524,599 535,590 543,590 574,611 590,622 595,621 595,604 640,587 651,595 651,607 664,618 664,622 654,631 654,647 651,657 643,665 642,679 647,687 646,694 654,703 663,704 669,712" />
+
+                    <polyline id="Hankyung" onclick="Hankyung();" points="518,597 511,585 517,575 517,565 512,555 514,553 514,550 512,543 516,538 517,531 521,532 527,533 535,524 534,514 539,509 544,508 549,504 551,500 558,498 562,496 585,525 594,524 598,531 617,529 625,536 633,528 637,529 644,536 644,547 656,557 649,571 639,584 592,602 592.5,619.5 591,620 544,588 534,588 523,597 518,597" />
+
+                    <polyline id="Hallym" onclick="Hallym();" points="563,493 566,487 574,486 576,483 575,477 585,464 599,465 600,460 604,459 619,447 618,442 622,441 632,427 628,423 634,417 630,409 629,402 634,399 646,400 645,392 657,392 662,409 660,429 668,440 668,457 687,466 689,488 705,501 724,514 745,525 745,529 706,528 699,536 687,551 681,548 658,554 647,545 647,535 638,526 631,525 625,531 619,526 600,528 596,521 586,522 563,493" />
+
+                    <polyline id="Gapado" onclick="Gapado();" points="629,787 634,782 643,782 646,785 645,787 649,787 652,797 648,796 645,801 635,802 635,797 628,794 629,787" />
+
+                    <polyline id="Marado" onclick="Marado();" points="631,843 634,840 637,841 636,852 635,856 632,858 629,853 631,843" />
+
+                    <polyline id="Chaguido" onclick="Chaguido();" points="476,573 485,574 484,570 492,570 497,567 502,577 500,579 495,578 494,583 490,583 487,587 484,586 485,582 480,584 477,582 477,579 475,578 474,576 476,573" />
+
+                    <polyline id="Chaguido2" onclick="Chaguido();" points="492,586 493,585 497,585 499,586 500,589 500,591 494,590 492,589 492,586" />
+
+                    <polyline id="biyangdo" onclick="biyangdo();" points="582,440 588,443 592,443 593,451 589,457 585,454 581,455 578,450 579,444 582,440" />
+
+                    <polyline id="Chujado" onclick="Chujado();" points="656,209 658,210 657,212 659,214 664,215 666,217 671,215 678,223 677,229 678,236 674,238 665,230 658,227 655,226 653,223 656,222 662,222 661,221 657,219 656,217 653,212 653,210 656,209" />
+
+                    <polyline id="Chujado1" onclick="Chujado();" points="681,234 686,235 688,238 689,236 689,234 692,234 696 232 700,234 702,236 707,236 709,233 711,233 712,231 721,229 723,232 725,232 723,235 722,236 722,238 725,238 726,241 725,241 725,247 717,247 717,250 708,249 706,253 706,259 709,260 710,261 712,264 713,268 708,268 705,267 703,269 698,268 699,265 698,259 694,256 693,251 685,244 682,243 678,240 681,238 681,234" />
+
+                    <polyline id="Chujado2" onclick="Chujado();" points="687,251 690,251 691,253 690,255 686,255 685,253 687,251" />
+
+                    <polyline id="udo" onclick="udo();" points="1438,275 1446,276 1449,282 1447,288 1451,290 1456,290 1460,288 1462,289 1461,293 1457,295 1456,297 1459,304 1460,309 1462,310 1463,316 1457,322 1458,325 1451,327 1450,324 1445,325 1441,326 1438,325 1438,322 1431,322 1430,313 1424,302 1425,297 1427,297 1430,294 1430,290 1434,289 1435,288 1436,285 1433,283 1432,280 1438,275" />
+                </svg>
+
+
+                <!--구좌읍-->
+                <div class="marker_all Gujwa_dalangswi Gujwa_marker">
+                    <a href="map_in.php?address=구좌읍&kind=restaurant&page=1&id=114&title=다랑쉬오름"><img src="list_img/attraction/dalangswioleum/1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Gujwa_gim_beach Gujwa_marker">
+                    <a href="map_in.php?address=구좌읍&kind=restaurant&page=1&id=113&title=김녕해수욕장"><img src="list_img/attraction/gimnyeonghaesuyogjang/1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Gujwa_miro Gujwa_marker">
+                    <a href="map_in.php?address=구좌읍&kind=restaurant&page=1&id=112&title=제주김녕미로공원"><img src="list_img/attraction/gimnyeongmilogong-won/1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+
+
+                <div class="marker_all Gujwa_manjang Gujwa_marker">
+                    <a href="map_in.php?address=구좌읍&kind=restaurant&page=1&id=115&title=만장굴"><img src="list_img/attraction/manjang-gul/3.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Gujwa_bijalim Gujwa_marker">
+                    <a href="map_in.php?address=구좌읍&kind=restaurant&page=1&id=116&title=비자림"><img src="list_img/attraction/bijalim/3.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Gujwa_sehwa_beach Gujwa_marker">
+                    <a href="map_in.php?address=구좌읍&kind=restaurant&page=1&id=118&title=세화%20해수욕장"><img src="list_img/attraction/sehwahaesuyogjang/2.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+
+                <div class="marker_all Gujwa_andol Gujwa_marker">
+                    <a href="map_in.php?address=구좌읍&kind=restaurant&page=1&id=122&title=안돌오름"><img src="list_img/attraction/andol-oleum/1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Gujwa_sehwa_abuoleum Gujwa_marker">
+                    <a href="map_in.php?address=구좌읍&kind=restaurant&page=1&id=121&title=아부오름"><img src="list_img/attraction/abuoleum/1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+
+                <div class="marker_all Gujwa_yongnun Gujwa_marker">
+                    <a href="map_in.php?address=구좌읍&kind=restaurant&page=1&id=123&title=용눈이오름"><img src="list_img/attraction/yongnun-ioleum/3.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <!--조천읍-->
+                <div class="marker_all Jocheon_supgil Jocheon_marker">
+                    <a href="map_in.php?address=조천읍&kind=restaurant&page=1&id=295&title=한라산둘레길(사려니숲길)"><img src="list_img/attraction/chinjeol_ni_supgil/1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Jocheon_geomun Jocheon_marker">
+                    <a href="map_in.php?address=조천읍&kind=restaurant&page=1&id=371&title=거문오름"><img src="list_img/attraction/geomun_oleum/1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Jocheon_dolhaleubang Jocheon_marker">
+                    <a href="map_in.php?address=조천읍&kind=restaurant&page=1&id=376&title=돌하르방미술관"><img src="list_img/attraction/dolhaleubang_misulgwan/1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Jocheon_dongbaeg Jocheon_marker">
+                    <a href="map_in.php?address=조천읍&kind=restaurant&page=1&id=378&title=동백동산"><img src="list_img/attraction/dongbaeg_dongsan/1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Jocheon_temapkeu Jocheon_marker">
+                    <a href="map_in.php?address=조천읍&kind=restaurant&page=1&id=383&title=서프라이즈%20테마파크"><img src="list_img/attraction/seopeulaijeu_temapakeu/5.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Jocheon_sangumbli Jocheon_marker">
+                    <a href="map_in.php?address=조천읍&kind=restaurant&page=1&id=381&title=산굼부리"><img src="list_img/attraction/sangumbuli/3.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Jocheon_hamdeog Jocheon_marker">
+                    <a href="map_in.php?address=조천읍&kind=restaurant&page=1&id=381&title=산굼부리"><img src="list_img/attraction/hamdeog_haesuyogjang/1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <!--성산-->
+                <div class="marker_all Seongsan_Gwangchigi Seongsan_marker">
+                    <a href="map_in.php?address=성산읍&kind=restaurant&page=1&id=146&title=광치기해변"><img src="list_img/attraction/Gwangchigi_Beach/1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+
+                </div>
+                <div class="marker_all Seongsan_Landatv Seongsan_marker">
+                    <a href="map_in.php?address=성산읍&kind=restaurant&page=1&id=160&title=제주랜드%20ATV"><img src="list_img/attraction/Jeju_Landatv_Riding/1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Seongsan_light_bunker Seongsan_marker">
+                    <a href="map_in.php?address=성산읍&kind=restaurant&page=1&id=147&title=김영갑갤러리두모악"><img src="list_img/attraction/Light_Bunker/4.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Seongsan_Seopjikoji Seongsan_marker">
+                    <a href="map_in.php?address=성산읍&kind=restaurant&page=1&id=150&title=빛의벙커"><img src="list_img/attraction/Seopjikoji/1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Seongsan_kim_young Seongsan_marker">
+                    <a href="map_in.php?address=성산읍&kind=restaurant&page=1&id=153&title=섭지코지"><img src="list_img/attraction/Kim_Young_gap_Gallery_Dumoak/5.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Seongsan_Ilchulbong Seongsan_marker">
+                    <a href="map_in.php?address=성산읍&kind=restaurant&page=1&id=156&title=성산일출봉"><img src="list_img/attraction/Seongsan_Ilchulbong_Tuff_Cone/2.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Seongsan_Aqua Seongsan_marker">
+                    <a href="map_in.php?address=성산읍&kind=restaurant&page=1&id=158&title=아쿠아플라넷"><img src="list_img/attraction/Aqua_Planet/5.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <!--표선읍-->
+
+                <div class="marker_all Pyoseon_Olegil_3 Pyoseon_marker">
+                    <a href="map_in.php?address=표선&kind=restaurant&page=1&id=68&title=제주올레길3코스"><img src="list_img/attraction/Olegil_3_Course/2.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Pyoseon_Olegil Pyoseon_marker">
+                    <a href="map_in.php?address=표선&kind=restaurant&page=1&id=69&title=올레길4코스"><img src="list_img/attraction/Olegil_4_Course/1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Pyoseon_Folk_Village Pyoseon_marker">
+                    <a href="map_in.php?address=표선&kind=restaurant&page=1&id=70&title=제주%20표선%20민속촌"><img src="list_img/attraction/Jeju_Pyoseon_Folk_Village/1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Pyoseon_Left_Bo_Mi_Climb Pyoseon_marker">
+                    <a href="map_in.php?address=표선&kind=restaurant&page=1&id=71&title=좌보미%20오름"><img src="list_img/attraction/Left_Bo_Mi_Climb/4.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Pyoseon_Red_Oreum_Natural Pyoseon_marker">
+                    <a href="map_in.php?address=표선&kind=restaurant&page=1&id=67&title=붉은오름자연휴양림"><img src="list_img/attraction/Red_Oreum_Natural_Recreation_Forest/1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+
+                <div class="marker_all Pyoseon_a_meadow_field Pyoseon_marker">
+                    <a href="map_in.php?address=표선&kind=restaurant&page=1&id=72&title=청초밭"><img src="list_img/attraction/a_meadow_field/4.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+
+                <div class="marker_all Pyoseon_ok_riding_ground Pyoseon_marker">
+                    <a href="map_in.php?address=표선&kind=restaurant&page=1&id=65&title=OK승마장"><img src="list_img/attraction/ok_riding_ground/1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Pyoseon_Noksan_ro_Yuchae Pyoseon_marker">
+                    <a href="map_in.php?address=표선&kind=restaurant&page=1&id=66&title=녹산로%20유채꽃도로"><img src="list_img/attraction/Noksan_ro_Yuchae_Flower_Road/5.PNG" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <!--남원-->
+
+                <div class="marker_all Namwon_Southern Namwon_marker">
+                    <a href="map_in.php?address=남원&kind=restaurant&page=1&id=47&title=올레길%205코스"><img src="list_img/attraction/Southern_Tangerine_Experience_Farm/1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Namwon_Lee_Seung_Ak Namwon_marker">
+                    <a href="map_in.php?address=남원&kind=restaurant&page=1&id=54&title=이승악"><img src="list_img/attraction/Lee_Seung_Ak/5.jfif" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Namwon_Huei Namwon_marker">
+                    <a href="map_in.php?address=남원&kind=restaurant&page=1&id=53&title=휴애리자연생활공원"><img src="list_img/attraction/Huei_Li_Life_Park/1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Namwon_native Namwon_marker">
+                    <a href="map_in.php?address=남원&kind=restaurant&page=1&id=51&title=토종흑염소목장"><img src="list_img/attraction/native_black_goat_ranch/3.JPG" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Namwon_camellia Namwon_marker">
+                    <a href="map_in.php?address=남원&kind=restaurant&page=1&id=44&title=동백포레스트"><img src="list_img/attraction/camellia_forest/2.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+
+                <div class="marker_all Namwon_Mulyeong Namwon_marker">
+                    <a href="map_in.php?address=남원&kind=restaurant&page=1&id=45&title=물영아리오름습지"><img src="list_img/attraction/Mulyeong_Arioreum_Wetland/1.jfif" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Namwon_oxcock Namwon_marker">
+                    <a href="map_in.php?address=남원&kind=restaurant&page=1&id=46&title=쇠소깍"><img src="list_img/attraction/oxcock/3.jfif" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Namwon_Olegil Namwon_marker">
+                    <a href="map_in.php?address=남원&kind=restaurant&page=1&id=47&title=올레길%205코스"><img src="list_img/attraction/Olegil_Course_5/3.jfif" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Namwon_Big_Owl Namwon_marker">
+                    <a href="map_in.php?address=남원&kind=restaurant&page=1&id=50&title=큰엉해안경승지"><img src="list_img/attraction/Big_Owl_Coast_Scenic_Area/1.jfif" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <!--서귀포시-->
+                <div class="marker_all Seogwipo_Baekrokdam Seogwipo_marker">
+                    <a href="map_in.php?address=서귀포&kind=restaurant&page=1&id=336&title=백록담"><img src="list_img/attraction/Baekrokdam/2.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Seogwipo_Jungbang Seogwipo_marker">
+                    <a href="map_in.php?address=서귀포&kind=restaurant&page=1&id=341&title=정방폭포"><img src="list_img/attraction/Jungbang_Waterfall/1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Seogwipo_double_subway Seogwipo_marker">
+                    <a href="map_in.php?address=서귀포&kind=attraction&page=1&id=340&title=이중섭거리"><img src="list_img/attraction/double_subway/2.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Seogwipo_Huangwuji Seogwipo_marker">
+                    <a href="map_in.php?address=서귀포&kind=restaurant&page=1&id=345&title=황우지해안"><img src="list_img/attraction/Huangwuji_Coast/5.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <!--중문-->
+                <div class="marker_all Jungmun_Veritneoreum Jungmun_marker">
+                    <a href="map_in.php?address=중문&kind=restaurant&page=1&id=55&title=베릿네오름"><img src="list_img/attraction/Veritneoreum/4.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Jungmun_Country Jungmun_marker">
+                    <a href="map_in.php?address=중문&kind=restaurant&page=1&id=62&title=중문컨트리클럽"><img src="list_img/attraction/Zhongmun_Country_Club/1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Jungmun_museum Jungmun_marker">
+                    <a href="map_in.php?address=중문&kind=restaurant&page=1&id=335&title=박물관은살아있다"><img src="list_img/attraction/The_museum_is_alive/1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Jungmun_Yeomiji Jungmun_marker">
+                    <a href="map_in.php?address=중문&kind=restaurant&page=1&id=60&title=여미지식물원"><img src="list_img/attraction/Yeomiji_Botanical_Garden/4.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Jungmun_Cannon Jungmun_marker">
+                    <a href="map_in.php?address=중문&kind=restaurant&page=1&id=61&title=대포해안주상절리대"><img src="list_img/attraction/Cannon_Coastal_Surrounding_Squadron/1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <!--안덕면-->
+                <div class="marker_all Anduk_Osullock Anduk_marker">
+                    <a href="map_in.php?address=안덕&kind=restaurant&page=1&id=338&title=오셜록%20티%20뮤지엄"><img src="list_img/attraction/Osullock_Tea_Museum/1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Anduk_Camellia Anduk_marker">
+                    <a href="map_in.php?address=안덕&kind=restaurant&page=1&id=272&title=카멜리아힐"><img src="list_img/attraction/Camellia_Hill/5.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Anduk_Jeju_Aerospace Anduk_marker">
+                    <a href="map_in.php?address=안덕&kind=restaurant&page=1&id=264&title=제주항공우주박물관"><img src="list_img/attraction/Jeju_Aerospace_Museum/5.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Anduk_Hello_Kitty Anduk_marker">
+                    <a href="map_in.php?address=안덕&kind=restaurant&page=1&id=275&title=헬로키티아일랜드"><img src="list_img/attraction/Hello_Kitty_Island/5.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Anduk_Valley Anduk_marker">
+                    <a href="map_in.php?address=안덕&kind=restaurant&page=1&id=260&title=안덕계곡"><img src="list_img/attraction/Andeok_Valley/1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Anduk_Yongmeori Anduk_marker">
+                    <a href="map_in.php?address=안덕&kind=restaurant&page=1&id=262&title=용머리해안"><img src="list_img/attraction/Yongmeori_Coast/2.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Anduk_Kunsan Anduk_marker">
+                    <a href="map_in.php?address=안덕&kind=restaurant&page=1&id=252&title=군산오름"><img src="list_img/attraction/Kunsan_Oreum/4.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <!--대정-->
+                <div class="marker_all Daejeong_goj Daejeong_marker">
+                    <a href="map_in.php?address=대정&kind=restaurant&page=1&id=162&title=곶자왈도립공원"><img src="list_img/attraction/goj-jawaldolibgong-won/5.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Daejeong_gimjeonghuiyubaeji Daejeong_marker">
+                    <a href="map_in.php?address=대정&kind=restaurant&page=1&id=164&title=김정희유배지"><img src="list_img/attraction/gimjeonghuiyubaeji/1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Daejeong_nolimae Daejeong_marker">
+                    <a href="map_in.php?address=대정&kind=restaurant&page=1&id=165&title=노리매"><img src="list_img/attraction/nolimae/1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Daejeong_dansan Daejeong_marker">
+                    <a href="map_in.php?address=대정&kind=restaurant&page=1&id=167&title=단산"><img src="list_img/attraction/dansan/5.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Daejeong_jejuchokollisbagmulgwan Daejeong_marker">
+                    <a href="map_in.php?address=대정&kind=restaurant&page=1&id=173&title=제주%20초콜릿박물관"><img src="list_img/attraction/jejuchokollisbagmulgwan/3.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Daejeong_song-agsan Daejeong_marker">
+                    <a href="map_in.php?address=대정&kind=restaurant&page=1&id=170&title=송악산"><img src="list_img/attraction/song-agsan/1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Daejeong_keijejussiwoking Daejeong_marker">
+                    <a href="map_in.php?address=대정&kind=restaurant&page=1&id=175&title=케이제주씨워킹"><img src="list_img/attraction/keijejussiwoking/3.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Daejeong_hamohaesuyogjang Daejeong_marker">
+                    <a href="map_in.php?address=대정&kind=restaurant&page=1&id=176&title=하모해수욕장"><img src="list_img/attraction/hamohaesuyogjang/3.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+                <!--한경면-->
+                <div class="marker_all Hankyung_Panpo Hankyung_marker">
+                    <a href="map_in.php?address=한경&kind=restaurant&page=1&id=28&title=판포포구"><img src="list_img/attraction/Panpo_Port/vks2.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Hankyung_Sinchang_Windmill Hankyung_marker">
+                    <a href="map_in.php?address=한경&kind=restaurant&page=1&id=76&title=신창풍차해안"><img src="list_img/attraction/Sinchang_Windmill_Coast/vnd2.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+                <div class="marker_all Hankyung_jeolbuam Hankyung_marker">
+                    <a href="map_in.php?address=한경&kind=restaurant&page=1&id=429&title=절부암"><img src="list_img/attraction/jeolbuam/1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Hankyung_arthropod_cancer Hankyung_marker">
+                    <a href="address=한경&kind=restaurant&page=1&id=77&title=절부암"><img src="list_img/attraction/arthropod_cancer/wjf4.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+
+                <div class="marker_all Hankyung_Spirited_Garden Hankyung_marker">
+                    <a href="map_in.php?address=한경&kind=restaurant&page=1&id=78&title=생각하는%20정원"><img src="list_img/attraction/Spirited_Garden/tod2.jpeg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Hankyung_Contemporary_Art Hankyung_marker">
+                    <a href="map_in.php?address=한경&kind=restaurant&page=1&id=24&title=제주현대미술관"><img src="list_img/attraction/Jeju_Museum_of_Contemporary_Art/gus4.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Hankyung_Jeju_Peace_Museum Hankyung_marker">
+                    <a href="map_in.php?address=한경&kind=restaurant&page=1&id=26&title=제주%20평화박물관"><img src="list_img/attraction/Jeju_Peace_Museum/vud4.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Hankyung_eong-alhaean Hankyung_marker">
+                    <a href="map_in.php?address=한경&kind=restaurant&page=1&id=428&title=엉알해안"><img src="list_img/attraction/eong-alhaean/4.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <!--한림읍-->
+                <div class="marker_all Hallym_beach Hallym_marker">
+                    <a href="map_in.php?address=한림&kind=restaurant&page=1&id=90&title=협재해수욕장"><img src="list_img/attraction/Hyeopjae_Beach/guq1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Hallim_Park Hallym_marker">
+                    <a href="map_in.php?address=한림&kind=restaurant&page=1&id=93&title=한림공원"><img src="list_img/attraction/Hallim_Park/gks1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Hallym_Greek_Mythology Hallym_marker">
+                    <a href="map_in.php?address=한림&kind=restaurant&page=1&id=91&title=그리스신화박물관"><img src="list_img/attraction/Museum_of_Greek_Mythology/rm1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+
+                </div>
+                <div class="marker_all Hallym_Golden_Beach Hallym_marker">
+                    <a href="map_in.php?address=한림&kind=restaurant&page=1&id=92&title=금능해수욕장"><img src="list_img/attraction/Golden_Beach/rma1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Hallym_biyangdopeollangmos Hallym_marker">
+                    <a href="map_in.php?address=한림&kind=restaurant&page=1&id=210&title=비양도%20펄랑못"><img src="list_img/attraction/biyangdopeollangmos/1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <!--애월읍-->
+                <div class="marker_all Aewol_Handam Aewol_marker">
+                    <a href="map_in.php?address=애월&kind=restaurant&page=1&id=85&title=한담해안산책로"><img src="list_img/attraction/Handam_Coastal_Walkway/gks.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Aewol_Kwakji Aewol_marker">
+                    <a href="map_in.php?address=애월&kind=restaurant&page=1&id=82&title=곽지해수욕장"><img src="list_img/attraction/Kwakji_Beach/rhkr2.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Aewol_Antipaduri Aewol_marker">
+                    <a href="map_in.php?address=애월&kind=restaurant&page=1&id=83&title=항파두리항몽유적지"><img src="list_img/attraction/Antipaduri_Antimony_Site/gkd1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Aewol_Dinosaur Aewol_marker">
+                    <a href="map_in.php?address=애월&kind=restaurant&page=1&id=81&title=제주공룡랜드"><img src="list_img/attraction/Jeju_Dinosaur_Land/rhd1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+                <div class="marker_all Aewol_Lamb_Ranch Aewol_marker">
+                    <a href="map_in.php?address=애월&kind=restaurant&page=1&id=86&title=제주양떼목장"><img src="list_img/attraction/Jeju_Lamb_Ranch/did.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+                <div class="marker_all Aewol_Teddy Aewol_marker">
+                    <a href="map_in.php?address=애월&kind=restaurant&page=1&id=89&title=테디베어사파리"><img src="list_img/attraction/Teddy_bear_safari/xp2.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+                <div class="marker_all Aewol_981_park Aewol_marker">
+                    <a href="map_in.php?address=애월&kind=restaurant&page=1&id=80&title=새별오름"><img src="list_img/attraction/9.81_park/9811.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+                <div class="marker_all Aewol_Let Aewol_marker">
+                    <a href="map_in.php?address=애월&kind=restaurant&page=1&id=87&title=렛츠런파크"><img src="list_img/attraction/Let's_Run_Park/fpt1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Aewol_Saebyeol Aewol_marker">
+                    <a href="zinazigi/map_in.php?address=애월&kind=restaurant&page=1&id=84&title=9.81파크"><img src="list_img/attraction/Saebyeol_Oreum/to1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Aewol_Garden Aewol_marker">
+                    <a href="map_in.php?address=애월&kind=restaurant&page=1&id=88&title=제주불빛정원"><img src="list_img/attraction/Jeju_Firelight_Garden/qbf.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <!--제주시-->
+
+                <div class="marker_all Jeju_City_dodubong Jeju_City_marker">
+                    <a href="map_in.php?address=제주시&kind=restaurant&page=1&id=291&title=도두봉"><img src="list_img/attraction/dodubong/4.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Jeju_City_guleum_dali Jeju_City_marker">
+                    <a href="map_in.php?address=제주시&kind=restaurant&page=1&id=307&title=용연구름다리"><img src="list_img/attraction/yong-yeon_guleum_dali/1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Jeju_City_sumog-won Jeju_City_marker">
+                    <a href="map_in.php?address=제주시&kind=restaurant&page=1&id=299&title=수목원테마파크"><img src="list_img/attraction/sumog-won_temapakeu/2.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Jeju_City_beuligkaempeoseu Jeju_City_marker">
+                    <a href="map_in.php?address=제주시&kind=restaurant&page=1&id=293&title=제주%20브릭캠퍼스"><img src="list_img/attraction/jeju_beuligkaempeoseu/2.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Jeju_City_sam-yang Jeju_City_marker">
+                    <a href="map_in.php?address=제주시&kind=restaurant&page=1&id=297&title=삼양해수욕장"><img src="list_img/attraction/sam-yang_haesuyogjang/2.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Jeju_City_achim Jeju_City_marker">
+                    <a href="map_in.php?address=제주시&kind=restaurant&page=1&id=300&title=아침미소목장"><img src="list_img/attraction/achim_miso_mogjang/4.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Jeju_City_yasijang Jeju_City_marker">
+                    <a href="map_in.php?address=제주시&kind=restaurant&page=1&id=298&title=수목원길%20야시장"><img src="list_img/attraction/sumog-won_gil_yasijang/5.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Jeju_City_hyuyanglim Jeju_City_marker">
+                    <a href="map_in.php?address=제주시&kind=restaurant&page=1&id=308&title=절물자연휴양림"><img src="list_img/attraction/jeolmul_jayeon_hyuyanglim/1.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+                <div class="marker_all Jeju_City_pyeonghwa Jeju_City_marker">
+                    <a href="map_in.php?address=제주시&kind=restaurant&page=1&id=309&title=제주%204.3평화공원"><img src="list_img/attraction/jeju_4.3_pyeonghwa-gong-won/2.jpg" class="marker_img"></a><br>
+                    <img src="img/map_rotation_icon_2.png" class="marker">
+                </div>
+
+
+
+            </div>
+        </section>
+        
+<!--
+        <section id="main3" class="scroll">
+            <div class="main3_con">
+                <div class="main3_text">Recommendation</div>
+                <div class="corona"><img src="img/corona.png"></div>
+                <div class="main3_con_1"><img src="img/main_card_news1.png" onclick="location.href = 'list_page.php?kind=cafe&page=1';"></div>
+                <div class="main3_con_2"><img src="img/main_card_news2.png" onclick="location.href = 'list_page.php?kind=restaurant&page=1';"></div>
+                <div class="main3_con_3"><img src="img/main_card_news3.png" onclick="location.href = 'list_page.php?kind=attraction&page=1';"></div>
+                <div class="main3_con_4"><img src="img/main_card_news4.png" onclick="location.href = 'list_page.php';"></div>
+            </div>
+            <img src="img/carver4.jpg" id="main_img3">
+        </section>
+
+-->
+
+
+        <?php include "login.php" ?>
+
+
+
+
+
+
+    </body>
+
+    </html>

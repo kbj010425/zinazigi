@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <link rel="shortcut icon" href="img/logo.png" type="image/x-icon" />
+        <link rel="icon" href="img/logo.png" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="css/create_board.css">
+        <script src="js/jquery-1.12.3.js" type="text/javascript" defer></script>
+        <script src="js/create_board_check.js" type="text/javascript" defer></script>
+    </head>
+    <body>
+        <h1>글쓰기</h1>
+        <form action="create_board.php" method="post" enctype="multipart/form-data" id="create_board">
+            <table>
+                <tr>
+                    <td>이름 : </td>
+                    <td><input autocomplete="off" type="text" name="title" autofocus required></td>
+                </tr>
+                <tr>
+                    <td>영문 이름 : </td>
+                    <td><input autocomplete="off" type="text" name="title_eng"  required></td>
+                </tr>
+                <tr>
+                    <td>한줄설명 : </td>
+                    <td><input autocomplete="off" type="text" maxlength="50" name="one_line" required></td>
+                </tr>
+                <tr>
+                    <td>종류 : </td>
+                    <td><select name="kind">
+                        <option value="attraction">명소</option>
+                        <option value="restaurant">맛집</option>
+                        <option value="cafe">카페</option>
+                        </select></td>
+                </tr>
+                <tr>
+                    <td>주소 : </td>
+                    <td><input autocomplete="off" type="text" maxlength="50" name="address" required></td>
+                </tr>
+                <tr>
+                    <td>연락처 : </td>
+                    <td><input autocomplete="off" type="text" maxlength="3" name="frest_phone" required> - <input type="text" maxlength="4" name="center_phone" required> - <input type="text" maxlength="4" name="last_phone"></td>
+                </tr>
+                <tr>
+                    <td>휴무일 / 영업시간 :</td>
+                    <td><input autocomplete="off" type="text" name="business"></td>
+                </tr>
+                <tr>
+                    <td>메뉴 : </td>
+                    <td><textarea autocomplete="off" name="menu" class="menu"></textarea></td>
+                </tr>
+                <tr>
+                    <td>메인이미지 : </td>
+                    <td><input type="file" name="img1" required></td>
+                </tr>
+                <tr>
+                    <td>이미지1 : </td>
+                    <td><input type="file" name="img2" required></td>
+                </tr>
+                <tr>
+                    <td>이미지2 : </td>
+                    <td><input type="file" name="img3" required></td>
+                </tr>
+                <tr>
+                    <td>이미지3 : </td>
+                    <td><input type="file" name="img4" required></td>
+                </tr>
+                <tr>
+                    <td>이미지4 : </td>
+                    <td><input type="file" name="img5" required></td>
+                </tr>
+                <tr>
+                    <td>상세설명 : </td>
+                    <td><textarea name="content" class="text" required></textarea></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="글쓰기"></td>
+                </tr>
+            </table>            
+        </form>
+    </body>
+</html>
