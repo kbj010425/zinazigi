@@ -1,0 +1,1235 @@
+body::-webkit-scrollbar {
+    display: none;
+}
+
+a{
+    color: #000000;
+    text-decoration: none;
+}
+.icon_text {
+    font-size: 25px;
+    color: white;
+}
+
+#main1 {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+#main2 {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#main3 {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    background-color: cadetblue;
+}
+
+#main4 {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+#main_img {
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    position: absolute;
+    left: 0;
+}
+
+.logout_header {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+.user_name {
+    position: absolute;
+    top: 15px;
+    right: 50px;
+}
+
+.main2_search {
+    z-index: 5;
+    position: absolute;
+    margin-left: 25px;
+    margin-top: 70px;
+}
+
+.search_text {
+    display: block;
+    margin: 58px;
+    margin-left: -55px;
+    margin-bottom: 2px;
+    font-size: 17px;
+    color: white;
+    font-weight: 1000;
+    padding-top: 2px;
+    position: absolute;
+    top: 15px;
+    left: 90px;
+}
+
+.search_Box {
+    width: 335px;
+    height: 50px;
+    border-radius: 25px;
+    border: none;
+    float: left;
+    box-shadow: 3px 3px 14px #757575;
+    background-color: #ffffff;
+    margin-bottom: 2px;
+    margin-left: 20px;
+}
+.searchBox {
+    width: 275px;
+    height: 50px;
+    border-radius: 25px;
+    border: none;
+    float: left;
+    margin-bottom: 2px;
+    padding-left: 15px;
+    font-size: 20px;
+}
+.searchBox:focus{
+    outline: none;
+    background-color: #ffffff;
+    -webkit-transition: all 0.30s ease-in-out;
+-moz-transition: all 0.30s ease-in-out;
+-ms-transition: all 0.30s ease-in-out;
+-o-transition: all 0.30s ease-in-out;
+outline: none;
+}
+.search_button{
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.search_result_box{
+    width: 380px;
+    height: 750px;
+    margin-top: 10px;
+    overflow-y: scroll;
+    text-align: left;
+    position: absolute;
+    top: 100px;
+    opacity: 0;
+    display: none;
+}
+.best_select{
+    position: absolute;
+    top: 95px;
+    left: 20px;
+}
+.search_result_box::-webkit-scrollbar {
+  width: 6px;
+}
+.search_result_box::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.search_result_box::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background-color: gray;
+}
+.search_result_box::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+}
+.search_results{
+    width: 160px;
+    height: 200px;
+    border-radius: 20px;
+    background-color: white;
+    display: inline-block;
+    margin-left: 20px;
+    text-align: center;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+.result_img{
+    width: 160px;
+    height: 140px;
+}
+.search_result_title{
+    font-size: 15px;
+    text-align: left;
+    font-weight: 700;
+    margin-left: 8px;
+    margin-top: 10px;
+}
+.one_line_text{
+    width: 140px;
+    text-align: left;
+    font-size: 13px;
+    margin-top: 3px;
+}
+
+
+
+
+
+
+
+
+.main2_recommend1 {
+    width: 335px;
+    height: 150px;
+    border-radius: 20px;
+/*    background: lightgray;*/
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.main2_recommend1>img{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 999;
+}
+/*
+#logo{
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    z-index: 999;
+    display: inline-block;
+    transform: translate(-50%,-50%);
+    cursor: pointer;
+    display: inline-block;
+    width: 200px;
+}
+*/
+
+/*
+#logo_img{
+    margin-top: 5%;
+    width: 100%;
+    opacity: 0;
+    display: inline-block;
+}
+*/
+#header {
+    width: 100%;
+    height: 4%;
+    background-color: #ffffff;
+    z-index: 999;
+    position: fixed;
+}
+
+#login {
+    float: right;
+    margin: 0.6%;
+}
+
+#menu {
+    z-index: 999;
+    position: absolute;
+    top: 60%;
+    right: 2%;
+    display: none;
+}
+
+#click_scroll1,
+#click_scroll2,
+#click_scroll3 {
+    display: none;
+    position: fixed;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+}
+
+#click_scroll1 {
+    top: 42%;
+    display: none;
+}
+
+#click_scroll2 {
+    top: 46%;
+    display: none;
+}
+
+#click_scroll3 {
+    top: 50%;
+    display: none;
+}
+
+.click_scroll {
+    width: 20px;
+    height: 20px;
+}
+
+.click_scroll > img {
+    width: 100%;
+    height: 100%;
+}
+
+#select_menu {
+    z-index: 999;
+    position: absolute;
+    top: 500px;
+    font-size: 20px;
+    display: none;
+}
+
+.line1,
+.line2,
+.line3,
+.line4 {
+    width: 100%;
+    height: 0.2px;
+    background-color: #fff;
+    z-index: 999;
+}
+
+#select_scroll1,
+#select_scroll2,
+#select_scroll3,
+#select_scroll4 {
+    z-index: 999;
+    position: fixed;
+    right: 0;
+    width: 19%;
+}
+
+#select_scroll1 {
+    top: 50%;
+    display: none;
+}
+
+#select_scroll2 {
+    top: 44%;
+    display: none;
+}
+
+#select_scroll3 {
+    top: 48%;
+    display: none;
+}
+
+#select_scroll4 {
+    top: 33.5%;
+    display: none;
+}
+
+#select_text1,
+#select_text2,
+#select_text3,
+#select_text4 {
+    position: fixed;
+    right: 0.94%;
+    font-size: 110%;
+    color: #fff;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+#select_text1 {
+    top: 42%;
+}
+
+#select_text2 {
+    top: 46%;
+}
+
+#select_text3 {
+    top: 50%;
+}
+
+
+.select_text > img {
+    width: 100%;
+    height: 100%;
+}
+
+#main_text {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    z-index: 999;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+.main_text_top {
+    font-size: 80px;
+    font-family: HY견고딕;
+    color: #ffffff;
+}
+
+.main_text_center {
+    font-size: 80px;
+    font-family: HY견고딕;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    color: #ffffff;
+}
+
+.main_text_bottom {
+    font-size: 30px;
+    font-family: 휴먼고딕;
+    color: #ffffff;
+}
+
+#down_scroll1,
+#down_scroll2,
+#down_scroll3 {
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    z-index: 900;
+    color: #fff;
+    transform: translate(-50%, -50%);
+}
+
+#down_scroll1 {
+    top: 95%;
+}
+
+#down_scroll2 {
+    top: 195%;
+}
+
+#down_scroll3 {
+    top: 295%;
+}
+
+.down_text {
+    color: #fff;
+}
+
+.down_scroll_button {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px;
+    opacity: 0.9;
+}
+
+#scroll_go {
+    position: absolute;
+    top: 57%;
+    width: 810px;
+    left: 50%;
+    z-index: 990;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    cursor: pointer;
+    display: inline-block;
+}
+
+#scroll_go img {
+    margin-bottom: 15px;
+}
+
+#scroll_go1 {
+    width: 150px;
+    height: 150px;
+    float: left;
+    margin: 60px;
+}
+
+#scroll_go2 {
+    width: 150px;
+    height: 150px;
+    float: left;
+    margin: 60px;
+}
+
+#scroll_go3 {
+    width: 150px;
+    height: 150px;
+    float: left;
+    margin: 60px;
+}
+
+#carver_op {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 800;
+    background-color: black;
+    opacity: 0.4;
+}
+
+.menu_button {
+    cursor: pointer;
+    color: #000000;
+    margin: 5px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+#Aewol,
+#Jeju_City,
+#Jocheon,
+#Gujwa,
+#Seongsan,
+#Pyoseon,
+#Namwon,
+#Seogwipo,
+#Jungmun,
+#Anduk,
+#Daejeong,
+#Hankyung,
+#Hallym,
+#Gapado,
+#Marado,
+#Chaguido,
+#Chaguido2,
+#biyangdo,
+#Chujado,
+#Chujado1,
+#Chujado2,
+#udo {
+    cursor: pointer;
+    display: inline-block;
+    fill: lightgray;
+    transition: background 0.5s, transform 0.5s ease-out, fill 0.5s;
+    position: relative;
+    top: 0;
+    z-index: 10;
+}
+
+#Aewol:hover,
+#Jeju_City:hover,
+#Jocheon:hover,
+#Gujwa:hover,
+#Seongsan:hover,
+#Pyoseon:hover,
+#Namwon:hover,
+#Seogwipo:hover,
+#Jungmun:hover,
+#Anduk:hover,
+#Daejeong:hover,
+#Hankyung:hover,
+#Hallym:hover,
+#Gapado:hover,
+#Marado:hover,
+#Chaguido:hover,
+#Chaguido2:hover,
+#biyangdo:hover,
+#Chujado:hover,
+#Chujado1:hover,
+#Chujado2:hover,
+#udo:hover {
+    border: 3px solid;
+    fill: #8eddff;
+    box-shadow: 5px 5px;
+    transition: background 0.5s, transform 0.5s ease-out, fill 0.5s;
+}
+
+.map {
+    width: 1920px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    zoom: 100%;
+    z-index: 0;
+}
+
+.reset_button {
+    width: 100px;
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    left: 1590%;
+    color: #ffffff;
+    display: none;
+}
+
+.main3_con {
+    width: 1040px;
+    position: absolute;
+    top: 250%;
+    left: 50%;
+    height: auto;
+    z-index: 500;
+    transform: translate(-50%, -50%);
+}
+
+.corona {
+    width: 500px;
+    height: 500px;
+    display: inline-block;
+    float: left;
+    background-color: #ffffff;
+    border-radius: 33px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.main3_text {
+    color: #ffffff;
+    font-size: 60px;
+    font-family: HY견고딕;
+    margin-bottom: 60px;
+}
+
+.main3_con_1,
+.main3_con_2,
+.main3_con_3,
+.main3_con_4 {
+    width: 230px;
+    height: 230px;
+    display: inline-block;
+    float: left;
+    background-color: #ffffff;
+    border-radius: 33px;
+    overflow: hidden;
+}
+
+.main3_con_1 > img,
+.main3_con_2 > img,
+.main3_con_3 > img,
+.main3_con_4 > img {
+    width: 230px;
+    height: 230px;
+    cursor: pointer;
+}
+
+.main3_con_1,
+.main3_con_3 {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.main3_con_1,
+.main3_con_2 {
+    margin-bottom: 40px;
+}
+
+.Aewol_text {
+    top: 440px;
+    left: -200px;
+    position: relative;
+    cursor: pointer;
+}
+
+.Jeju_City_text {
+    top: 400px;
+    left: 920px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.Jocheon {
+    top: 356px;
+    left: 1095px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.Gujwa {
+    position: absolute;
+    top: 325px;
+    left: 1240px;
+    cursor: pointer;
+}
+
+.Seongsan {
+    position: absolute;
+    top: 435px;
+    left: 1320px;
+    cursor: pointer;
+}
+
+.Pyoseon {
+    position: absolute;
+    top: 500px;
+    left: 1212px;
+    cursor: pointer;
+}
+
+.Namwon {
+    position: absolute;
+    top: 560px;
+    left: 1090px;
+    cursor: pointer;
+}
+
+.Seogwipo {
+    position: absolute;
+    top: 610px;
+    left: 955px;
+    cursor: pointer;
+}
+
+.Jungmun {
+    position: absolute;
+    top: 615px;
+    left: 840px;
+    cursor: pointer;
+}
+
+.Anduk {
+    position: absolute;
+    top: 620px;
+    left: 685px;
+    cursor: pointer;
+}
+
+.Daejeong {
+    position: absolute;
+    top: 666px;
+    left: 576px;
+    cursor: pointer;
+}
+
+.Hankyung {
+    position: absolute;
+    top: 570px;
+    left: 555px;
+    cursor: pointer;
+}
+
+.Hallym {
+    position: absolute;
+    top: 495px;
+    left: 615px;
+    cursor: pointer;
+}
+
+.Gapado {
+    position: absolute;
+    top: 800px;
+    left: 585px;
+    cursor: pointer;
+}
+
+.Marado {
+    position: absolute;
+    top: 856px;
+    left: 583px;
+    cursor: pointer;
+}
+
+.Chaguido {
+    position: absolute;
+    top: 569px;
+    left: 435px;
+    cursor: pointer;
+}
+
+.biyangdo {
+    position: absolute;
+    top: 443px;
+    left: 532px;
+    cursor: pointer;
+}
+
+.Chujado {
+    position: absolute;
+    top: 258px;
+    left: 630px;
+    cursor: pointer;
+}
+
+.Udo {
+    position: absolute;
+    top: 270px;
+    left: 1430px;
+    cursor: pointer;
+}
+
+#main_img3 {
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    position: absolute;
+    top: 200%;
+    left: 0;
+    filter: brightness(45%);
+}
+
+.marker {
+    width: 23px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 0;
+    position: absolute;
+    bottom: 2px;
+    left: 16px;
+}
+
+.marker_img {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+    margin-bottom: 5px;
+    display: none;
+}
+
+.marker_all {
+    position: absolute;
+    height: 91px;
+    text-align: center;
+}
+
+.Gujwa_miro {
+    top: 193px;
+    left: 1210px;
+}
+
+.Gujwa_gim_beach {
+    top: 165px;
+    left: 1220px;
+}
+
+.Gujwa_dalangswi {
+    top: 260px;
+    left: 1295px;
+}
+
+.Gujwa_manjang {
+    top: 180px;
+    left: 1245px;
+}
+
+.Gujwa_bijalim {
+    top: 225px;
+    left: 1245px;
+}
+
+.Gujwa_sehwa_beach {
+    top: 205px;
+    left: 1315px;
+}
+
+.Gujwa_sehwa_abuoleum {
+    top: 300px;
+    left: 1255px;
+}
+
+.Gujwa_andol {
+    top: 270px;
+    left: 1235px;
+}
+
+.Gujwa_yongnun {
+    top: 280px;
+    left: 1313px;
+}
+
+.Gujwa_marker {
+    display: none;
+
+}
+.Jocheon_marker {
+    display: none;
+
+}
+.Jocheon_supgil{
+    top: 370px;
+    left: 1060px;
+}
+.Jocheon_geomun{
+    top: 320px;
+    left: 1120px;
+}
+.Jocheon_dolhaleubang{
+    top: 180px;
+    left: 1080px;
+}
+.Jocheon_dongbaeg{
+    top: 210px;
+    left: 1100px;
+}
+.Jocheon_sangumbli{
+    top: 345px;
+    left: 1100px;
+}
+.Jocheon_temapkeu{
+    top: 280px;
+    left: 1080px;
+}
+.Jocheon_hamdeog{
+    top: 190px;
+    left: 1040px;
+}
+.Seongsan_marker{
+    display: none;
+
+}
+.Seongsan_Gwangchigi{
+    top: 320px;
+    left: 1375px;
+}
+.Seongsan_kim_young{
+    top: 410px;
+    left: 1325px;
+}
+.Seongsan_light_bunker{
+    top: 315px;
+    left: 1345px;
+}
+.Seongsan_Seopjikoji{
+    top: 340px;
+    left: 1355px;
+}
+.Seongsan_Ilchulbong{
+    top: 300px;
+    left: 1405px;
+}
+.Seongsan_Aqua{
+    top: 347px;
+    left: 1385px;
+}
+.Seongsan_Landatv{
+    top: 370px;
+    left: 1325px;
+}
+.Pyoseon_marker{
+    display: none;
+
+}
+.Pyoseon_Olegil{
+    top: 480px;
+    left: 1250px;
+}
+.Pyoseon_Folk_Village{
+    top: 495px;
+    left: 1280px;
+}
+.Pyoseon_Left_Bo_Mi_Climb{
+    top: 350px;
+    left: 1230px;
+}
+.Pyoseon_a_meadow_field{
+    top: 360px;
+    left: 1195px;
+}
+.Pyoseon_ok_riding_ground{
+    top: 380px;
+    left: 1220px;
+}
+.Pyoseon_Noksan_ro_Yuchae{
+    top: 410px;
+    left: 1200px;
+}
+.Pyoseon_Red_Oreum_Natural{
+    top: 365px;
+    left: 1170px;
+}
+.Pyoseon_Olegil_3{
+    top: 440px;
+    left: 1260px;
+}
+.Namwon_marker{
+    display: none;
+
+}
+.Namwon_camellia{
+    top: 550px;
+    left: 1060px;
+}
+.Namwon_Mulyeong{
+    top: 510px;
+    left: 1120px;
+}
+.Namwon_oxcock{
+    top: 540px;
+    left: 1135px;
+}
+.Namwon_Olegil{
+    top: 550px;
+    left: 1105px;
+}
+.Namwon_Southern{
+    top: 450px;
+    left: 1075px;
+}
+.Namwon_Big_Owl{
+    top: 565px;
+    left: 1125px;
+}
+.Namwon_native{
+    top: 500px;
+    left: 1075px;
+}
+.Namwon_Huei{
+    top: 490px;
+    left: 1040px;
+}
+.Namwon_Lee_Seung_Ak{
+    top: 465px;
+    left: 1110px;
+}
+.Seogwipo_marker{
+    display: none;
+
+}
+.Seogwipo_Baekrokdam{
+    top: 460px;
+    left: 930px;
+}
+.Seogwipo_double_subway{
+    top: 605px;
+    left: 960px;
+}
+.Seogwipo_Jungbang{
+    top: 590px;
+    left: 980px;
+}
+.Seogwipo_Huangwuji{
+    top: 610px;
+    left: 935px;
+}
+.Jungmun_marker{
+    display: none;
+
+}
+.Jungmun_museum{
+    top: 595px;
+    left: 790px;
+}
+.Jungmun_Yeomiji{
+    top: 610px;
+    left: 760px;
+}
+.Jungmun_Cannon{
+    top: 623px;
+    left: 800px;
+}
+.Jungmun_Country{
+    top: 580px;
+    left: 770px;
+}
+.Jungmun_Veritneoreum{
+    top: 610px;
+    left: 830px;
+}
+.Anduk_marker{
+    display: none;
+
+}
+.Anduk_Osullock{
+    top: 530px;
+    left: 640px;
+}
+.Anduk_Hello_Kitty{
+    top: 580px;
+    left: 680px;
+}
+.Anduk_Camellia{
+    top: 540px;
+    left: 660px;
+}
+.Anduk_Jeju_Aerospace{
+    top: 565px;
+    left: 650px;
+}
+.Anduk_Valley{
+    top: 605px;
+    left: 660px;
+}
+.Anduk_Yongmeori{
+    top: 630px;
+    left: 650px;
+}
+.Anduk_Kunsan{
+    top: 610px;
+    left: 690px;
+}
+.Daejeong_marker{
+    display: none;
+
+}
+.Daejeong_nolimae{
+    top: 600px;
+    left: 600px;
+}
+.Daejeong_dansan{
+    top: 630px;
+    left: 610px;
+}
+.Daejeong_gimjeonghuiyubaeji{
+    top: 575px;
+    left: 610px;
+}
+.Daejeong_goj{
+    top: 545px;
+    left: 580px;
+}
+.Daejeong_jejuchokollisbagmulgwan{
+    top: 595px;
+    left: 555px;
+}
+.Daejeong_song-agsan{
+    top: 665px;
+    left: 630px;
+}
+.Daejeong_hamohaesuyogjang{
+    top: 650px;
+    left: 595px;
+}
+.Daejeong_keijejussiwoking{
+    top: 620px;
+    left: 575px;
+}
+.Hankyung_marker{
+    display: none;
+
+}
+.Hankyung_Panpo{
+    top: 435px;
+    left: 530px;
+}
+.Hankyung_Sinchang_Windmill{
+    top: 465px;
+    left: 495px;
+}
+.Hankyung_arthropod_cancer{
+    top: 490px;
+    left: 505px;
+}
+.Hankyung_Spirited_Garden{
+    top: 475px;
+    left: 550px;
+}
+.Hankyung_Contemporary_Art{
+    top: 490px;
+    left: 580px;
+}
+.Hankyung_Jeju_Peace_Museum{
+    top: 520px;
+    left: 565px;
+}
+.Hankyung_eong-alhaean{
+    top: 515px;
+    left: 495px;
+}
+.Hankyung_jeolbuam{
+    top: 480px;
+    left: 527px;
+}
+.Hallym_marker{
+    display: none;
+
+}
+.Hallym_beach{
+    top: 395px;
+    left: 568px;
+}
+.Hallym_Greek_Mythology{
+    top: 475px;
+    left: 635px;
+}
+.Hallym_Golden_Beach{
+    top: 445px;
+    left: 575px;
+}
+.Hallim_Park{
+    top: 370px;
+    left: 610px;
+}
+.Hallym_biyangdopeollangmos{
+    top: 385px;
+    left: 590px;
+}
+.Aewol_marker{
+    display: none;
+
+}
+.Aewol_Kwakji{
+    top: 320px;
+    left: 650px;
+}
+.Aewol_Antipaduri{
+    top: 290px;
+    left: 735px;
+}
+.Aewol_Dinosaur{
+    top: 320px;
+    left: 715px;
+}
+.Aewol_Saebyeol{
+    top: 445px;
+    left: 720px;
+}
+.Aewol_981_park{
+    top: 370px;
+    left: 680px;
+}
+.Aewol_Handam{
+    top: 300px;
+    left: 690px;
+}
+.Aewol_Lamb_Ranch{
+    top: 350px;
+    left: 710px;
+}
+.Aewol_Let{
+    top: 380px;
+    left: 710px;
+}
+.Aewol_Garden{
+    top: 380px;
+    left: 770px;
+}
+.Aewol_Teddy{
+    top: 330px;
+    left: 740px;
+}
+.Jeju_City_marker{
+    display: none;
+
+}
+.Jeju_City_beuligkaempeoseu{
+    top: 260px;
+    left: 860px;
+}
+.Jeju_City_dodubong{
+    top: 220px;
+    left: 855px;
+}
+.Jeju_City_sam-yang{
+    top: 210px;
+    left: 925px;
+}
+.Jeju_City_sumog-won{
+    top: 250px;
+    left: 885px;
+}
+.Jeju_City_achim{
+    top: 270px;
+    left: 940px;
+}
+.Jeju_City_yasijang{
+    top: 290px;
+    left: 880px;
+}
+.Jeju_City_guleum_dali{
+    top: 215px;
+    left: 880px;
+}
+.Jeju_City_hyuyanglim{
+    top: 355px;
+    left: 950px;
+}
+.Jeju_City_pyeonghwa{
+    top: 300px;
+    left: 1000px;
+}
+.all_category{
+    font-size: 13px;
+    color: white;
+    font-weight: 600;
+    margin-left: 10px;
+    cursor: pointer;
+}

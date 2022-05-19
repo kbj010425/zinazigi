@@ -1,0 +1,18 @@
+@font-face {
+  font-family: '08SeoulNamsanL_0';
+  src: url('08SeoulNamsanL_0.eot');
+  src: url('08SeoulNamsanL_0.eot?#iefix') format('embedded-opentype'),
+       url('08SeoulNamsanL_0.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SeoulNamsanL';
+  src: url('SeoulNamsanL.svg#SeoulNamsanL') format('svg'),
+       url('SeoulNamsanL.ttf') format('truetype'),
+       url('SeoulNamsanL.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+

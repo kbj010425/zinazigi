@@ -1,0 +1,10 @@
+.menu{
+    width: 280px;
+    height: 100px;
+    resize: none;
+}
+.text{
+    width: 400px;
+    height: 300px;
+    resize: none;
+}

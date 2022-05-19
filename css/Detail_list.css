@@ -1,0 +1,199 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#wrap {}
+
+#header-wrap {
+    width: 100%;
+    height: 50px;
+}
+
+#banner-wrap {
+    width: 100%;
+    height: 125px;
+    border-bottom: 2px solid lightgray;
+    background: linear-gradient(to bottom, #f0f0f0 5%, white, white, white);
+}
+
+#category-wrap {
+    width: 100%;
+    height: 100px;
+}
+
+#list-wrap {
+    width: 100%;
+    height: 2500px;
+    background-color: white;
+}
+
+#map-wrap {
+    width: 100%;
+    height: 500px;
+    background-color: darkorange;
+}
+
+#footer-wrap {
+    width: 100%;
+    height: 250px;
+    background-color: dimgrey;
+}
+
+
+.header-container {
+    line-height: center;
+    width: 1000px;
+    height: 50px;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+}
+
+.header-menu {
+    margin-top: -15px;
+    text-align: right;
+    color: white;
+}
+
+.hart {
+    width: 80px;
+    height: 35px;
+    border-left: 2px solid lightgray;
+    display: inline-block;
+}
+
+.Recently {
+    width: 80px;
+    height: 35px;
+    border-left: 2px solid lightgray;
+    display: inline-block;
+}
+
+.my {
+    width: 80px;
+    height: 35px;
+    border-left: 2px solid lightgray;
+    display: inline-block;
+}
+
+.banner-container {
+    width: 1000px;
+    height: 90px;
+    margin: 0 auto;
+    padding-top: 35px;
+    text-align: center;
+    color: gray;
+}
+
+.banner-container h1 {
+    font-size: 25px;
+}
+
+.banner-container h2 {
+    font-size: 16px;
+}
+
+.category-container {
+    width: 1000px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.category {
+    padding-top: 25px;
+}
+
+.place {
+    display: inline-block;
+    font-size: 35px;
+    padding: 0 0 0 50;
+    color: gray;
+}
+
+.restaurant {
+    display: inline-block;
+    font-size: 35px;
+    padding: 0 307 0 307;
+    color: gray;
+}
+
+.festiva {
+    display: inline-block;
+    font-size: 35px;
+    padding: 0 50 0 0;
+    color: gray;
+}
+
+
+.list-container {
+    width: 1000px;
+    height: 2500px;
+    margin: 0 auto;
+    background-color: white;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.list1 {
+    width: 1000px;
+    height: 250px;
+    border-bottom: 2px solid lightgray;
+    font-size: 25px;
+    background-color: white;
+    padding: 10px;
+}
+
+.list1 .img1 {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    background-color: lightgray;
+    float: left;
+    margin-right: 30px;
+}
+
+.list1 .title {
+  //  padding-left: 50px;
+    font-size: 30px;
+    color: lightgray;
+    display: inline-block;
+    text-align: right;
+}
+
+.list1 .Rating {
+  //  padding-left: 50px;
+    display: inline-block;
+    font-size: 30px;
+    color: lightgray;
+}
+
+.list1 .address {
+  //  padding-left: 50px;
+    margin-top: 10px;
+    display: inline-block;
+    font-size: 15px;
+    color: lightgray;
+}
+
+.list1 .Introduction {
+  //  padding-left: 50px;
+    margin-top: 100px;
+    display: inline-block;
+    font-size: 15px;
+    color: lightgray;
+}
+
+.map-container {
+    width: 1000px;
+    height: 500px;
+    margin: 0 auto;
+    background-color: forestgreen;
+}
+
+.footer-container {
+    width: 1000px;
+    height: 250px;
+    margin: 0 auto;
+    background-color: black;
+}

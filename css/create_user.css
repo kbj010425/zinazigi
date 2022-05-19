@@ -1,0 +1,334 @@
+#create_model{
+    width: 450px;
+    height: 600px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 999;
+    background-color: white;
+    display: none;
+}
+#login_model{
+    width: 450px;
+    height: 500px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 999;
+    background-color: white;
+    display: none;
+}
+#find_id_model{
+    width: 450px;
+    height: 500px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 9999;
+    background-color: white;
+    display: none;
+}
+
+#find_pw_model{
+    width: 450px;
+    height: 500px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 9999;
+    background-color: white;
+    display: none;
+}
+.model_img{
+    width: 450px;
+    height: 600px;
+    background-color: #a59cc7;
+    float: left;
+}
+.model_img1{
+    width: 450px;
+    height: 500px;
+    background-color: #a59cc7;
+    float: left;
+}
+.model_close{
+    width: 450px;
+    display: inline-block;
+}
+.close_button_img{
+    margin: 10px 10px 0px 0px;
+    float: right;
+    cursor: pointer;
+}
+.model_text{
+    width: 450px;
+    height: 600px;
+    float: left;
+
+    text-align: center;
+}
+.model_text1{
+    width: 450px;
+    height: 500px;
+    float: left;
+
+    text-align: center;
+}
+.sing_up{
+    font-size: 40px;
+}
+.sing_up1{
+    font-size: 40px;
+    margin-top: 65px;
+}
+.sing_up2{
+    font-size: 40px;
+    margin-top: 55px;
+}
+.input{
+    width: 300px;
+    height: 300px;
+    margin-top: 20px;
+}
+.input1{
+    width: 300px;
+    height: 200px;
+    margin-top: 20px;
+}
+.id_img{
+    margin-top: 0px;
+    float: left;
+}
+.id_img1{
+    margin-top: 0px;
+    float: left;
+    position: absolute;
+    position: absolute;
+    top: 203px;
+}
+.id_img2{
+    margin-top: 0px;
+    float: left;
+    position: absolute;
+    top: 193px;
+}
+.id_img6{
+    margin-top: 0px;
+    float: left;
+    position: absolute;
+    top: 191px;
+}
+.id_img3{
+    margin-top: 0px;
+    float: left;
+    position: absolute;
+    top: -4px;
+}
+.id_img5{
+    margin-top: 0px;
+    float: left;
+    position: absolute;
+    top: 175px;
+}
+.pw_img1{
+    margin-top: 0px;
+    float: left;
+    position: absolute;
+    top: 251px;
+}
+.find_email_img{
+    margin-top: 0px;
+    float: left;
+    position: absolute;
+    top: 189px;
+}
+
+.find_email_img1{
+    margin-top: 0px;
+    float: left;
+    position: absolute;
+    top: 209px;
+}
+
+.find_email_img2{
+    margin-top: 0px;
+    float: left;
+    position: absolute;
+    top: 235px;
+}
+.find_email_img3{
+    margin-top: 0px;
+    float: left;
+    position: absolute;
+    top: 230px;
+}
+.id_text1{
+    float: left;
+    margin-top: 6px;
+    margin-left: 4px;
+    font-size: 15px;
+}
+.input_table{
+    width: 300px;
+    height: 350px;
+    margin-bottom: 30px;
+}
+
+.input_table1{
+    width: 300px;
+    height: 100px;
+    margin-top: 50px;
+}
+.input_table2{
+    width: 300px;
+    height: 100px;
+    margin-top: 30px;
+}
+.input_table3{
+    width: 300px;
+    height: 100px;
+    margin-top: 40px;
+}
+
+input[type="text"]{
+    width: 100%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #acacac;
+    font-size: 15px;
+    outline: none;
+}
+
+input[type="password"]{
+    width: 100%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #acacac;
+    font-size: 15px;
+    outline: none;
+}
+.submit_login{
+    width: 100%;
+    height: 50px;
+    background-color: #a59cc7;
+    color: white;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+}
+td{
+    padding: 0;
+}
+.base , .pw_ture, .base1, .false, .ture, .pw_ture, .pw_false, .ture1, .false1, .email_suess{
+    font-size: 13px;
+    color: #acacac;
+}
+
+.email_check{
+    border: none;
+    background-color: #a59cc7;
+    color: white;
+    border-radius: 4px;
+    outline: none;
+    margin-top: 5px;
+    position: relative;
+    left: 75px;
+    top: -28px;
+}
+
+.email_check2{
+    border: none;
+    background-color: #a59cc7;
+    color: white;
+    border-radius: 4px;
+    outline: none;
+    margin-top: 5px;
+    position: absolute;
+    right: 75px;
+    top: 212px;
+}
+.find_id_check{
+    width: 100%;
+    height: 50px;
+    background-color: #a59cc7;
+    color: white;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+#mask{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    background: #000;
+    display: none;
+    cursor: pointer;
+}
+.id_input_text, .pw_input_text{
+    padding-left: 34px;
+    padding-bottom: 8px;
+}
+.id_input_text1{
+    padding-left: 34px;
+    padding-bottom: 8px;
+    width: 100%;
+}
+.id_find, .pw_find{
+    color: #acacac;
+    font-size: 13px;
+    cursor: pointer;
+}
+.id_find{
+    margin-right: 10px;
+}
+.pw_find{
+    margin-left: 10px;
+}
+.fint_text{
+    margin-top: 20px;
+}
+.find_submit{
+    margin-top: 20px;
+}
+.find_pw_submit{
+    margin-top: 50px;
+    width: 100%;
+    height: 50px;
+    background-color: #a59cc7;
+    color: white;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+}
+#find_id_check{
+    font-size: 14px;
+}
+
+.td_under_bar{
+    border-bottom: 1px solid #acacac;
+}
+#find_id_check{
+    position: absolute;
+    top: 265px;
+}
+.email_check_text_1{
+    position: absolute;
+    top: 285px;
+    width: 300px;
+    display: none;
+}
+#find_hide_pw1, #find_hide_pw2{
+    display: none;
+}
+.pw_ture1, .pw_false1{
+    position: absolute;
+}
